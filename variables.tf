@@ -28,6 +28,42 @@ variable "tfvars_filename" {
   type        = string
 }
 
+variable "enable_diagnostic_setting" {
+  description = "Enable Azure Diagnostics setting for the Key Vault"
+  type        = bool
+  default     = true
+}
+
+variable "diagnostic_log_analytics_workspace_id" {
+  description = "Specify a Log Analytics Workspace ID to send Diagnostic information to"
+  type        = string
+  default     = ""
+}
+
+variable "diagnostic_eventhub_name" {
+  description = "Specify an Event Hub name to send Diagnostic information to"
+  type        = string
+  default     = ""
+}
+
+variable "diagnostic_storage_account_id" {
+  description = "Specify a Storage Account ID to send Diagnostic information to"
+  type        = string
+  default     = ""
+}
+
+variable "enable_diagnostic_retention_policy" {
+  description = "Should a retention policy be enabled for the Diagnostic logs?"
+  type        = bool
+  default     = true
+}
+
+variable "diagnostic_retention_days" {
+  description = "How many days should Diagnostic Logs be retained for?"
+  type        = number
+  default     = 7
+}
+
 variable "tags" {
   description = "Tags to be applied to all resources"
   type        = map(string)
