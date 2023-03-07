@@ -1,1 +1,11 @@
-environment = "dev"
+environment = "Dev"
+project_name = "myproject"
+resource_group_name = "my-rg-name"
+azure_location = "uk-south"
+key_vault_access_users = [
+  "my_email.address.suffix#EXT#@platformidentity.onmicrosoft.com",
+]
+tfvars_filename = "dev.tfvars"
+tags = {
+  "My Tag" = "My Value!"
+}
