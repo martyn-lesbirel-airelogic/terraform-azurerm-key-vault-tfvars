@@ -10,11 +10,25 @@ This module creates and manages an Azure Key Vault and stores your Terraform var
 Example module usage:
 
 ```hcl
-module "azure-key-vault-tfvars" {
-  source  = "github.com/dfe-digital/terraform-azurerm-key-vault-tfvars"
+module "azure_key_vault_tfvars" {
+  source = "github.com/DFE-Digital/terraform-azurerm-key-vault-tfvars?ref=v0.1.0"
 
-  environment = "dev/staging/test/pre-prod/prod/post-prod"
+  environment         = "Dev"
+  project_name        = "myproject"
+  resource_group_name = "my-rg-name"
+  azure_location      = "uk-south"
+
+  key_vault_access_users = [
+    "my_email.address.suffix#EXT#@platformidentity.onmicrosoft.com",
+  ]
+
+  tfvars_filename = "dev.tfvars"
+
+  tags = {
+    "My Tag" = "My Value!"
+  }
 }
+
 ```
 
 <!-- BEGIN_TF_DOCS -->
