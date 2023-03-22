@@ -10,7 +10,7 @@ locals {
   enable_diagnostic_retention_policy    = var.enable_diagnostic_retention_policy
   diagnostic_retention_days             = var.diagnostic_retention_days
   diagnostic_log_analytics_workspace_id = var.diagnostic_log_analytics_workspace_id != "" ? var.diagnostic_log_analytics_workspace_id : null
-  log_analytics_destination_type        = var.diagnostic_log_analytics_workspace_id != "" ? "AzureDiagnostics" : null
+  log_analytics_destination_type        = var.diagnostic_log_analytics_workspace_id != "" ? "Dedicated" : null
   diagnostic_storage_account_id         = var.diagnostic_storage_account_id != "" ? var.diagnostic_storage_account_id : null
   diagnostic_eventhub_name              = var.diagnostic_eventhub_name != "" ? var.diagnostic_eventhub_name : null
   tags                                  = var.tags
