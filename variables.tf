@@ -8,9 +8,15 @@ variable "project_name" {
   type        = string
 }
 
-variable "resource_group_name" {
+variable "existing_resource_group" {
   description = "Name of an existing Resource Group to create the Key Vault within"
   type        = string
+}
+
+variable "enable_resource_group_lock" {
+  description = "Enabling this will add a Resource Lock to the Resource Group preventing any resources from being deleted."
+  type        = bool
+  default     = false
 }
 
 variable "azure_location" {

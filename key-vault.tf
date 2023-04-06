@@ -1,7 +1,7 @@
 resource "azurerm_key_vault" "tfvars" {
   name                       = "${local.resource_prefix}-tfvars"
   location                   = local.azure_location
-  resource_group_name        = local.resource_group_name
+  resource_group_name        = local.resource_group.name
   tenant_id                  = data.azurerm_client_config.current.tenant_id
   sku_name                   = "standard"
   soft_delete_retention_days = 7
