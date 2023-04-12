@@ -25,8 +25,19 @@ variable "azure_location" {
 }
 
 variable "key_vault_access_users" {
-  description = "List of users that require access to the Key Vault where tfvars are stored. This should be a list of User Principle Names (Found in Active Directory) that need to run terraform"
+  description = "List of users that require access to the Key Vault. This should be a list of User Principle Names (Found in Active Directory) that need to run terraform"
   type        = list(string)
+}
+
+variable "key_vault_access_ipv4" {
+  description = "List of IPv4 Addresses that are permitted to access the Key Vault"
+  type        = list(string)
+}
+
+variable "key_vault_access_subnet_ids" {
+  description = "List of Azure Subnet IDs that are permitted to access the Key Vault"
+  type        = list(string)
+  default     = []
 }
 
 variable "tfvars_filename" {
