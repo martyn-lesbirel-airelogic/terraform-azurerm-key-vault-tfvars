@@ -7,6 +7,8 @@ locals {
   resource_group                        = local.existing_resource_group == "" ? azurerm_resource_group.default[0] : data.azurerm_resource_group.existing_resource_group[0]
   enable_resource_group_lock            = var.enable_resource_group_lock
   key_vault_access_users                = toset(var.key_vault_access_users)
+  key_vault_access_ipv4                 = var.key_vault_access_ipv4
+  key_vault_access_subnet_ids           = var.key_vault_access_subnet_ids
   tfvars_filename                       = var.tfvars_filename
   enable_diagnostic_setting             = var.enable_diagnostic_setting
   enable_diagnostic_retention_policy    = var.enable_diagnostic_retention_policy

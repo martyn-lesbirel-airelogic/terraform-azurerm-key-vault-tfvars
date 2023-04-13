@@ -6,6 +6,7 @@ resource "azurerm_key_vault" "tfvars" {
   sku_name                   = "standard"
   soft_delete_retention_days = 7
   enable_rbac_authorization  = false
+  purge_protection_enabled   = true
 
   dynamic "access_policy" {
     for_each = data.azuread_user.key_vault_access
@@ -30,15 +31,12 @@ resource "azurerm_key_vault" "tfvars" {
     }
   }
 
-  # It won't be possible to add/manage a network acl for this
-  # vault, as it will need to be accessable for multiple people.
-  # tfsec:ignore:azure-keyvault-specify-network-acl
   network_acls {
-    bypass         = "None"
-    default_action = "Allow"
+    bypass                     = "AzureServices"
+    default_action             = "Deny"
+    ip_rules                   = length(local.key_vault_access_ipv4) > 0 ? local.key_vault_access_ipv4 : null
+    virtual_network_subnet_ids = length(local.key_vault_access_subnet_ids) > 0 ? local.key_vault_access_subnet_ids : null
   }
-
-  purge_protection_enabled = true
 
   tags = local.tags
 }

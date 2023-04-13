@@ -22,6 +22,16 @@ module "azure_key_vault_tfvars" {
     "my_email.address.suffix#EXT#@platformidentity.onmicrosoft.com",
   ]
 
+  # List of IPV4 Addresses that are permitted to access the Key Vault
+  key_vault_access_ipv4 = [
+    "8.8.8.8"
+  ]
+
+  ## Specify a list of Azure Subnet Resource IDs that can access this Key Vault
+  # key_vault_access_subnet_ids = [
+  #   "/my/azure/subnet/id"
+  # ]
+
   tfvars_filename = "dev.tfvars"
 
   tags = {
@@ -74,7 +84,9 @@ module "azure_key_vault_tfvars" {
 | <a name="input_enable_resource_group_lock"></a> [enable\_resource\_group\_lock](#input\_enable\_resource\_group\_lock) | Enabling this will add a Resource Lock to the Resource Group preventing any resources from being deleted. | `bool` | `false` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Environment name. Will be used along with `project_name` as a prefix for all resources. | `string` | n/a | yes |
 | <a name="input_existing_resource_group"></a> [existing\_resource\_group](#input\_existing\_resource\_group) | Name of an existing Resource Group to create the Key Vault within | `string` | n/a | yes |
-| <a name="input_key_vault_access_users"></a> [key\_vault\_access\_users](#input\_key\_vault\_access\_users) | List of users that require access to the Key Vault where tfvars are stored. This should be a list of User Principle Names (Found in Active Directory) that need to run terraform | `list(string)` | n/a | yes |
+| <a name="input_key_vault_access_ipv4"></a> [key\_vault\_access\_ipv4](#input\_key\_vault\_access\_ipv4) | List of IPv4 Addresses that are permitted to access the Key Vault | `list(string)` | n/a | yes |
+| <a name="input_key_vault_access_subnet_ids"></a> [key\_vault\_access\_subnet\_ids](#input\_key\_vault\_access\_subnet\_ids) | List of Azure Subnet IDs that are permitted to access the Key Vault | `list(string)` | `[]` | no |
+| <a name="input_key_vault_access_users"></a> [key\_vault\_access\_users](#input\_key\_vault\_access\_users) | List of users that require access to the Key Vault. This should be a list of User Principle Names (Found in Active Directory) that need to run terraform | `list(string)` | n/a | yes |
 | <a name="input_project_name"></a> [project\_name](#input\_project\_name) | Project name. Will be used along with `environment` as a prefix for all resources. | `string` | n/a | yes |
 | <a name="input_tags"></a> [tags](#input\_tags) | Tags to be applied to all resources | `map(string)` | `{}` | no |
 | <a name="input_tfvars_filename"></a> [tfvars\_filename](#input\_tfvars\_filename) | tfvars filename. This file is uploaded and stored encrupted within Key Vault, to ensure that the latest tfvars are stored in a shared place. | `string` | n/a | yes |
