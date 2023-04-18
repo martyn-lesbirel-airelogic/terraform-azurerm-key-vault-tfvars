@@ -46,16 +46,16 @@ module "azure_key_vault_tfvars" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.3.9 |
-| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | >= 2.3.6 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 3.41.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.4.5 |
+| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | >= 2.37.1 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | >= 3.52.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | 2.36.0 |
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.46.0 |
+| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | 2.37.1 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 3.52.0 |
 
 ## Resources
 
