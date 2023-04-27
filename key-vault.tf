@@ -41,12 +41,10 @@ resource "azurerm_key_vault" "tfvars" {
   tags = local.tags
 }
 
-# Expiry doesn't need to be set, as this is just used as a way to
-# store and share the tfvars
-# tfsec:ignore:azure-keyvault-ensure-secret-expiry
 resource "azurerm_key_vault_secret" "tfvars" {
-  name         = "${local.resource_prefix}-tfvars"
-  value        = base64encode(file(local.tfvars_filename))
-  key_vault_id = azurerm_key_vault.tfvars.id
-  content_type = "text/plain+base64"
+  name            = "${local.resource_prefix}-tfvars"
+  value           = base64encode(file(local.tfvars_filename))
+  key_vault_id    = azurerm_key_vault.tfvars.id
+  content_type    = "text/plain+base64"
+  expiration_date = local.year_from_now
 }
