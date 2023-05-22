@@ -1,7 +1,7 @@
 # terraform-azurerm-key-vault-tfvars
 
-[![Terraform CI](./actions/workflows/continuous-integration-terraform.yml/badge.svg?branch=main)](./actions/workflows/continuous-integration-terraform.yml?branch=main)
-[![GitHub release](./releases)](./releases)
+[![Terraform CI](https://github.com/DFE-Digital/terraform-azurerm-key-vault-tfvars/actions/workflows/continuous-integration-terraform.yml/badge.svg?branch=main)](https://github.com/DFE-Digital/terraform-azurerm-key-vault-tfvars/actions/workflows/continuous-integration-terraform.yml?branch=main)
+[![GitHub release](https://github.com/DFE-Digital/terraform-azurerm-key-vault-tfvars/releases)](https://github.com/DFE-Digital/terraform-azurerm-key-vault-tfvars/releases)
 
 This module creates and manages an Azure Key Vault and stores your Terraform variable files as Secrets within it.
 
