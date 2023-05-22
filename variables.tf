@@ -45,6 +45,12 @@ variable "tfvars_filename" {
   type        = string
 }
 
+variable "secret_expiry_years" {
+  description = "Number of years from now when the Key Vault secret should be considered expired"
+  type        = number
+  default     = 5
+}
+
 variable "enable_diagnostic_setting" {
   description = "Enable Azure Diagnostics setting for the Key Vault"
   type        = bool

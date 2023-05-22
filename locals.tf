@@ -18,4 +18,7 @@ locals {
   diagnostic_storage_account_id         = var.diagnostic_storage_account_id != "" ? var.diagnostic_storage_account_id : null
   diagnostic_eventhub_name              = var.diagnostic_eventhub_name != "" ? var.diagnostic_eventhub_name : null
   tags                                  = var.tags
+  secret_expiry_years                   = var.secret_expiry_years
+  timestamp_parts                       = regex("^(?P<year>\\d+)(?P<remainder>-.*)$", timestamp())
+  year_from_now                         = format("%d%s", local.timestamp_parts.year + local.secret_expiry_years, local.timestamp_parts.remainder)
 }
