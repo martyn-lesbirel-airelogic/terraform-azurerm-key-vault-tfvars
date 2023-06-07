@@ -9,8 +9,9 @@ variable "project_name" {
 }
 
 variable "existing_resource_group" {
-  description = "Name of an existing Resource Group to create the Key Vault within"
+  description = "Name of an existing Resource Group to create the Key Vault within. If left empty, one will be created."
   type        = string
+  default     = ""
 }
 
 variable "enable_resource_group_lock" {
