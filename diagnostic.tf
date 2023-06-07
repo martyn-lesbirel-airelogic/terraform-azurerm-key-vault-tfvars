@@ -1,4 +1,3 @@
-
 resource "azurerm_monitor_diagnostic_setting" "tfvars" {
   count = local.enable_diagnostic_setting ? 1 : 0
 

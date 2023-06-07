@@ -57,6 +57,12 @@ variable "enable_diagnostic_setting" {
   default     = true
 }
 
+variable "enable_log_analytics_workspace" {
+  description = "When enabled, creates a Log Analyics Workspace, if one hasn't been specified for `diagnostic_log_analytics_workspace_id`"
+  type        = bool
+  default     = false
+}
+
 variable "diagnostic_log_analytics_workspace_id" {
   description = "Specify a Log Analytics Workspace ID to send Diagnostic information to"
   type        = string
@@ -67,6 +73,12 @@ variable "diagnostic_eventhub_name" {
   description = "Specify an Event Hub name to send Diagnostic information to"
   type        = string
   default     = ""
+}
+
+variable "enable_diagnostic_storage_account" {
+  description = "When enabled, creates a Storage Account for the diagnostic logs, if one hasn't been specified for `diagnostic_storage_account_id`"
+  type        = bool
+  default     = false
 }
 
 variable "diagnostic_storage_account_id" {
