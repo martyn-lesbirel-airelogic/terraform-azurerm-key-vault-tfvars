@@ -13,10 +13,11 @@ Example module usage:
 module "azure_key_vault_tfvars" {
   source = "github.com/DFE-Digital/terraform-azurerm-key-vault-tfvars?ref=v0.2.0"
 
-  environment         = "Dev"
-  project_name        = "myproject"
-  resource_group_name = "my-rg-name"
-  azure_location      = "uk-south"
+  environment                = "Dev"
+  project_name               = "myproject"
+  existing_resource_group    = "my-rg-name"
+  enable_resource_group_lock =  false
+  azure_location             = "uk-south"
 
   key_vault_access_users = [
     "my_email.address.suffix#EXT#@platformidentity.onmicrosoft.com",
@@ -32,8 +33,18 @@ module "azure_key_vault_tfvars" {
   #   "/my/azure/subnet/id"
   # ]
 
-  tfvars_filename = "dev.tfvars"
+  tfvars_filename     = "dev.tfvars"
+  secret_expiry_years = 5
 
+  # enable_diagnostic_setting             = true
+  # enable_log_analytics_workspace        = false
+  # diagnostic_log_analytics_workspace_id = "my-log-analytics"
+  # diagnostic_eventhub_name              = "my-eventhub-name"
+  # enable_diagnostic_storage_account     = false
+  # diagnostic_storage_account_id         = "my-storage-account-id"
+  # enable_diagnostic_retention_policy    = true
+  # diagnostic_retention_days             = 7
+  
   tags = {
     "My Tag" = "My Value!"
   }
