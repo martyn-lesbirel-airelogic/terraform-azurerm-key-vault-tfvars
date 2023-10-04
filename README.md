@@ -11,7 +11,7 @@ Example module usage:
 
 ```hcl
 module "azure_key_vault_tfvars" {
-  source = "github.com/DFE-Digital/terraform-azurerm-key-vault-tfvars?ref=v0.2.0"
+  source = "github.com/DFE-Digital/terraform-azurerm-key-vault-tfvars?ref=v0.2.1"
 
   environment                = "Dev"
   project_name               = "myproject"
@@ -42,9 +42,7 @@ module "azure_key_vault_tfvars" {
   # diagnostic_eventhub_name              = "my-eventhub-name"
   # enable_diagnostic_storage_account     = false
   # diagnostic_storage_account_id         = "my-storage-account-id"
-  # enable_diagnostic_retention_policy    = true
-  # diagnostic_retention_days             = 7
-  
+
   tags = {
     "My Tag" = "My Value!"
   }
