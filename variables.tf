@@ -88,18 +88,6 @@ variable "diagnostic_storage_account_id" {
   default     = ""
 }
 
-variable "enable_diagnostic_retention_policy" {
-  description = "Should a retention policy be enabled for the Diagnostic logs?"
-  type        = bool
-  default     = true
-}
-
-variable "diagnostic_retention_days" {
-  description = "How many days should Diagnostic Logs be retained for?"
-  type        = number
-  default     = 7
-}
-
 variable "tags" {
   description = "Tags to be applied to all resources"
   type        = map(string)

@@ -13,19 +13,9 @@ resource "azurerm_monitor_diagnostic_setting" "tfvars" {
 
   enabled_log {
     category = "AuditEvent"
-
-    retention_policy {
-      enabled = local.enable_diagnostic_retention_policy
-      days    = local.diagnostic_retention_days
-    }
   }
 
   metric {
     category = "AllMetrics"
-
-    retention_policy {
-      enabled = local.enable_diagnostic_retention_policy
-      days    = local.diagnostic_retention_days
-    }
   }
 }
