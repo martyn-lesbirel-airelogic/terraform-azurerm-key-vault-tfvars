@@ -10,6 +10,7 @@ locals {
   key_vault_access_ipv4             = var.key_vault_access_ipv4
   key_vault_access_subnet_ids       = var.key_vault_access_subnet_ids
   tfvars_filename                   = var.tfvars_filename
+  enable_tfvars_file_age_check      = var.enable_tfvars_file_age_check
   enable_diagnostic_setting         = var.enable_diagnostic_setting
   enable_diagnostic_storage_account = var.diagnostic_storage_account_id == "" ? var.enable_diagnostic_storage_account : false
   enable_log_analytics_workspace    = var.diagnostic_log_analytics_workspace_id == "" ? var.enable_log_analytics_workspace : false

@@ -41,10 +41,27 @@ resource "azurerm_key_vault" "tfvars" {
   tags = local.tags
 }
 
+resource "null_resource" "check_key_vault_secret_age_against_local_tfvars" {
+  count = local.enable_tfvars_file_age_check ? 1 : 0
+
+  provisioner "local-exec" {
+    interpreter = ["/bin/bash", "-c"]
+    command     = "${path.module}/scripts/check-key-vault-secret-age-against-local-tfvars.sh -v \"${azurerm_key_vault.tfvars.name}\" -s \"${local.resource_prefix}-tfvars\" -f ${local.tfvars_filename}"
+  }
+
+  triggers = {
+    tfvar_file_md5 = filemd5(local.tfvars_filename)
+  }
+}
+
 resource "azurerm_key_vault_secret" "tfvars" {
   name            = "${local.resource_prefix}-tfvars"
   value           = base64encode(file(local.tfvars_filename))
   key_vault_id    = azurerm_key_vault.tfvars.id
   content_type    = "text/plain+base64"
   expiration_date = local.year_from_now
+
+  depends_on = [
+    null_resource.check_key_vault_secret_age_against_local_tfvars
+  ]
 }
