@@ -52,6 +52,12 @@ variable "secret_expiry_years" {
   default     = 5
 }
 
+variable "enable_tfvars_file_age_check" {
+  description = "Compares the file age of the tfvars file with the updated time of the Key Vault Secret, and prevents and older tfvars file updating a newer secret."
+  type        = bool
+  default     = true
+}
+
 variable "enable_diagnostic_setting" {
   description = "Enable Azure Diagnostics setting for the Key Vault"
   type        = bool
