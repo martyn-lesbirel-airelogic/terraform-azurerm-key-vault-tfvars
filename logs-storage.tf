@@ -12,3 +12,13 @@ resource "azurerm_storage_account" "logs" {
 
   tags = local.tags
 }
+
+resource "azurerm_storage_account_network_rules" "logs" {
+  count = local.enable_diagnostic_storage_account ? 1 : 0
+
+  storage_account_id         = azurerm_storage_account.logs[0].id
+  default_action             = "Deny"
+  bypass                     = ["AzureServices"]
+  virtual_network_subnet_ids = []
+  ip_rules                   = []
+}
