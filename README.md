@@ -11,7 +11,7 @@ Example module usage:
 
 ```hcl
 module "azure_key_vault_tfvars" {
-  source = "github.com/DFE-Digital/terraform-azurerm-key-vault-tfvars?ref=v0.4.1"
+  source = "github.com/DFE-Digital/terraform-azurerm-key-vault-tfvars?ref=v0.5.0"
 
   environment                = "Dev"
   project_name               = "myproject"
