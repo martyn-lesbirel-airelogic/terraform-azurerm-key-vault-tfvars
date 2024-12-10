@@ -59,18 +59,18 @@ module "azure_key_vault_tfvars" {
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.9.5 |
-| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | >= 2.37.1 |
-| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 4.0.0 |
-| <a name="requirement_null"></a> [null](#requirement\_null) | >= 3.2.1 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.9 |
+| <a name="requirement_azuread"></a> [azuread](#requirement\_azuread) | ~> 2.37 |
+| <a name="requirement_azurerm"></a> [azurerm](#requirement\_azurerm) | ~> 4.0 |
+| <a name="requirement_null"></a> [null](#requirement\_null) | ~> 3.2 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | 2.53.1 |
-| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | 4.0.1 |
-| <a name="provider_null"></a> [null](#provider\_null) | 3.2.2 |
+| <a name="provider_azuread"></a> [azuread](#provider\_azuread) | ~> 2.37 |
+| <a name="provider_azurerm"></a> [azurerm](#provider\_azurerm) | ~> 4.0 |
+| <a name="provider_null"></a> [null](#provider\_null) | ~> 3.2 |
 
 ## Resources
 
